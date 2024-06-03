@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anozenje Michelle Kamanga - CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f3f0;
+            color: #666;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #ff80ab;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 50% 50%;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #ff80ab;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content p {
+            margin-bottom: 5px;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card ul li {
+            color: #ff80ab;
+        }
+
+        h2, h3 {
+            font-family: 'Arial', sans-serif;
+            color: #ff80ab;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #19191a;
+        }
+
+        p {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .summary {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ff80ab;
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            border: 2px solid #ff80ab;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #ff80ab;
+            color: white;
+            border-right: 2px solid #ff80ab;
+        }
+
+        td {
+            border-right: 2px solid #ff80ab;
+        }
+    </style>
+</head>
+<body>
+    
+    <script id="cv-template" type="text/x-handlebars-template">
+        <header>
+            <h1>{{personalDetails.name}}</h1>
+            <p><strong>Phone:</strong> {{personalDetails.phone}} | <strong>Email:</strong> {{personalDetails.email}}</p>
+            <div class="user-photo">
+                <img src="public\nozi.jpg" alt="User Photo" class="responsive-img">
+            </div>
+            <div class="summary">
+                <p>{{summary}}</p>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title section-title">Education</span>
+                            <img src="public\OIP.jpg" alt="Education Photo" class="responsive-img">
+                            <h2>{{education.institution}}</h2>
+                            <p>{{education.description}}</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title section-title">Foreign Language</span>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Language</th>
+                                        <th>Greeting</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each foreignLanguage}}
+                                    <tr>
+                                        <td>{{language}}</td>
+                                        <td>{{greeting}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title section-title">Experience</span>
+                            {{#each experience}}
+                            <h2>Place: {{place}}</h2>
+                            <h3>Position: {{position}}</h3>
+                            <p><strong>Duration:</strong> {{duration}}</p>
+                            <p><strong>Responsibilities:</strong></p>
+                            <ul>
+                                {{#each responsibilities}}
+                                <li>{{this}}</li>
+                                {{/each}}
+                            </ul>
+                            <h3>Skills:</h3>
+                            <ul>
+                                {{#each skills}}
+                                <li>{{this}}</li>
+                                {{/each}}
+                            </ul>
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title section-title">Favourite Subjects</span>
+                            {{#each favouriteSubjects}}
+                            <p><strong>{{subject}}:</strong> {{description}}</p>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Include Handlebars and script to render the template -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script>
+        // JSON data
+        var data = {
+            "personalDetails": {
+                "name": "Anozenje Michelle Kamanga",
+                "phone": "071125808",
+                "email": "anozenje@gmail.com",
+                "photoSrc": "public/nozi.jpg"
+            },
+            "summary": "I am a dedicated and hardworking individual with a passion for excellence. Throughout my academic and professional career, I have demonstrated strong commitment, resilience, and a drive to achieve success. I thrive in dynamic environments where I can utilize my skills to contribute positively and make a meaningful impact.",
+            "education": {
+                "institution": "Harvard University",
+                "description": "Harvard University is a prestigious private Ivy League research university in Cambridge, Massachusetts, founded in 1636. It's the oldest institution of higher learning in the US, offering a wide range of undergraduate and graduate degree programs through its 12 schools and institutes. Harvard is known for academic excellence, innovative research, and distinguished faculty, with a strong commitment to student life and a rich history of producing notable alumni. The university's mission is to educate citizens and citizen-leaders, pursuing knowledge and bettering society."
+            },
+            "foreignLanguage": [
+                {"language": "Korean", "greeting": "Annyeonghaeseyo"},
+                {"language": "English", "greeting": "Hello"},
+                {"language": "Korean", "greeting": "Annyeongaeseyo?"},
+                {"language": "English", "greeting": "How are you?"}
+            ],
+            "experience": [
+                {
+                    "place": "Spur",
+                    "position": "Waitress",
+                    "duration": "2023",
+                    "responsibilities": [
+                        "Taking orders and serving food and drinks to customers",
+                        "Providing excellent customer service, ensuring customer satisfaction",
+                        "Collaborating with other staff members and promotions"
+                    ],
+                    "skills": [
+                        "Excellent communication and interpersonal skills",
+                        "Basic math skills and accuracy with handling cash",
+                        "Passionate"
+                    ]
+                }
+            ],
+            "favouriteSubjects": [
+                {"subject": "Economics", "description": "The study of how societies allocate resources to meet their unlimited needs and wants."},
+                {"subject": "History", "description": "The examination of past human events, societies, and cultures to understand their impact on the present and future."},
+                {"subject": "International Relations", "description": "The analysis of interactions between nations, states, and international organizations to understand global dynamics and cooperation."}
+            ]
+        };
+
+        // Compile Handlebars template
+        var source = document.getElementById("cv-template").innerHTML;
+        var template = Handlebars.compile(source);
+
+        // Render the template with the data
+        var html = template(data);
+
+        // Append the rendered HTML to the body
+        document.body.innerHTML = html;
+    </script>
+</body>
+</html>

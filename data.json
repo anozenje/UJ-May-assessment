@@ -1,0 +1,42 @@
+{
+  "personalDetails": {
+      "name": "Anozenje Michelle Kamanga",
+      "phone": "071125808",
+      "email": "anozenje@gmail.com",
+      "photoSrc": "./nozi.jpg"
+  },
+  "summary": "I am a dedicated and hardworking individual with a passion for excellence. Throughout my academic and professional career, I have demonstrated strong commitment, resilience, and a drive to achieve success. I thrive in dynamic environments where I can utilize my skills to contribute positively and make a meaningful impact.",
+  "education": {
+      "photoSrc":"./OIP.jpg",
+      "institution": "Harvard University",
+      "description": "Harvard University is a prestigious private Ivy League research university in Cambridge, Massachusetts, founded in 1636. It's the oldest institution of higher learning in the US, offering a wide range of undergraduate and graduate degree programs through its 12 schools and institutes. Harvard is known for academic excellence, innovative research, and distinguished faculty, with a strong commitment to student life and a rich history of producing notable alumni. The university's mission is to educate citizens and citizen-leaders, pursuing knowledge and bettering society."
+  },
+  "foreignLanguage": [
+      { "language": "Korean", "greeting": "Annyeonghaeseyo" },
+      { "language": "English", "greeting": "Hello" },
+      { "language": "Korean", "greeting": "Annyeongaeseyo?" },
+      { "language": "English", "greeting": "How are you?" }
+  ],
+  "experience": [
+      {
+          "place": "Spur",
+          "position": "Waitress",
+          "duration": "2023",
+          "responsibilities": [
+              "Taking orders and serving food and drinks to customers",
+              "Providing excellent customer service, ensuring customer satisfaction",
+              "Collaborating with other staff members and promotions"
+          ],
+          "skills": [
+              "Excellent communication and interpersonal skills",
+              "Basic math skills and accuracy with handling cash",
+              "Passionate"
+          ]
+      }
+  ],
+  "favouriteSubjects": [
+      { "subject": "Economics", "description": "The study of how societies allocate resources to meet their unlimited needs and wants." },
+      { "subject": "History", "description": "The examination of past human events, societies, and cultures to understand their impact on the present and future." },
+      { "subject": "International Relations", "description": "The analysis of interactions between nations, states, and international organizations to understand global dynamics and cooperation." }
+  ]
+}
