@@ -1,4 +1,4 @@
- "personalDetails": {
+  "personalDetails": {
       "name": "Anozenje Michelle Kamanga",
       "phone": "071125808",
       "email": "anozenje@gmail.com",
@@ -80,8 +80,5 @@
       {"subject": "International Relations", "description": "The analysis of interactions between nations, states, and international organizations to understand global dynamics and cooperation."}
     ]
   }
-  
+ 
 >>>>>>> 5b4b693d9a4aafe32de3c545f8004c9422c9d3a9
-
-
-
